@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">NxoBT integration</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">NXO in BrainTree</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="launch_checkout">Launch 1 Time Checkout</string>
+    <string name="launch_ba">Launch Billing Agreements</string>
+
+    <string name="set_params">Setup Parameters</string>
+    <string name="set_amount">Set Amount</string>
+    <string name="set_address_override">Address Override</string>
+    <string name="set_address_editable">Address Editable</string>
+    <string name="pay_mode">Set Pay Mode</string>
+    <string name="start">Start Checkout</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <array name="pay_mode_list">
+        <item name="Continue"/>
+        <item name="Pay Now"/>
+    </array>
+</resources>
