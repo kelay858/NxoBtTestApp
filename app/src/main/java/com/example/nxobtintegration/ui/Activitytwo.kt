@@ -9,28 +9,26 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.nxobtintegration.R
 import com.example.nxobtintegration.databinding.ActivityMainBinding
 import com.example.nxobtintegration.util.Auth
 
-class MainActivity : AppCompatActivity() {
+class Activitytwo : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
-    private var token: String = "EC-6MK914750B9718507"
+    private var token: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState?.let {
-            val checkoutToken = it.getString("checkoutToken")
-            checkoutToken?.let { token = checkoutToken }
-        }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        Auth(applicationContext, token).invoke()
+
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

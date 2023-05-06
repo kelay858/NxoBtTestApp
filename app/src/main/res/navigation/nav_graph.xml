@@ -5,9 +5,21 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/FirstFragment">
 
+    <activity
+        android:id="@+id/RedirectActivity"
+        android:name="com.example.nxobtintegration.ui.FirstFragment"
+        android:label="@string/hello_second_fragment"
+        tools:layout="@layout/activity_two"/>
+
     <fragment
         android:id="@+id/FirstFragment"
         android:name="com.example.nxobtintegration.ui.FirstFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_first"/>
+
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.nxobtintegration.ui.SecondFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_second"/>
 </navigation>
