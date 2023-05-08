@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.nxobtintegration.databinding.FragmentFirstBinding
+import com.example.nxobtintegration.util.Auth
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -18,6 +19,7 @@ class FirstFragment : Fragment() {
     private var _binding: FragmentFirstBinding? = null
 
     private val binding get() = _binding!!
+    private var token: String = "EC-6MK914750B9718507"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +31,19 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        savedInstanceState?.let {
+            val checkoutToken = it.getString("checkoutToken")
+            checkoutToken?.let {
+                token = checkoutToken
+                binding.launchBa.text = "LLS Success - Click to redirect"
+            }
+        }
+
+        Auth(requireContext(), token).invoke {
+            binding.launchBa.visibility = View.VISIBLE
+        }
+
         binding.launchBa.setOnClickListener {
-//            var token: String = "EC-4ME94791UM2024107"
-//            Auth(requireContext(), token).invoke()
             val token = requireContext().getSharedPreferences("pref", Context.MODE_PRIVATE).getString("auth", "EMPTY")
 
             val intent = Intent()

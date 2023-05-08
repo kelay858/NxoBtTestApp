@@ -7,7 +7,7 @@
     <string name="previous">Previous</string>
 
     <string name="launch_checkout">Launch 1 Time Checkout</string>
-    <string name="launch_ba">Redirect</string>
+    <string name="launch_ba">Click to Redirect to Merchant</string>
 
     <string name="set_params">Setup Parameters</string>
     <string name="set_amount">Set Amount</string>

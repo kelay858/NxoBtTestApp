@@ -20,15 +20,11 @@ class Auth(private val context: Context, private val checkoutToken: String) {
     val foundationRiskConfig = FoundationRiskConfig(context)
     val authenticator by lazy { createAuthenticator(checkoutToken) }
 
-    private val successCallback = { token: String? ->
-        println("Doing Auth $token")
-    }
-
     private val failureCallback = { error: Exception? ->
         println("Doing Error $error")
     }
 
-    fun invoke() {
+    fun invoke(successCallback: (String?) -> Unit) {
         foundationRiskConfig.generatePairingIdAndNotifyDyson(
             checkoutToken
         )

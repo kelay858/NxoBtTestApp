@@ -1,5 +1,6 @@
 package com.example.nxobtintegration.ui
 
+import android.content.Context
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        getSharedPreferences("pref", Context.MODE_PRIVATE).edit().putString("auth", "").apply()
+
         savedInstanceState?.let {
             val checkoutToken = it.getString("checkoutToken")
             checkoutToken?.let { token = checkoutToken }
@@ -29,8 +32,6 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        Auth(applicationContext, token).invoke()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
